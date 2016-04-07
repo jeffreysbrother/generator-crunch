@@ -76,10 +76,6 @@ module.exports = generators.Base.extend({
         name: 'Modernizr',
         value: 'includeModernizr',
         checked: true
-      }, {
-        name: 'uncss',
-        value: 'includeUncss',
-        checked: true
       }]
     }, {
       type: 'confirm',
@@ -103,7 +99,6 @@ module.exports = generators.Base.extend({
       this.includeSass = hasFeature('includeSass');
       this.includeBootstrap = hasFeature('includeBootstrap');
       this.includeModernizr = hasFeature('includeModernizr');
-      this.includeUncss = hasFeature('includeUncss');
       this.includeJQuery = answers.includeJQuery;
 
       done();
@@ -121,7 +116,6 @@ module.exports = generators.Base.extend({
           version: this.pkg.version,
           includeSass: this.includeSass,
           includeBootstrap: this.includeBootstrap,
-          includeUncss: this.includeUncss,
           includeBabel: this.options['babel'],
           testFramework: this.options['test-framework']
         }
@@ -134,7 +128,6 @@ module.exports = generators.Base.extend({
         this.destinationPath('package.json'),
         {
           includeSass: this.includeSass,
-          includeUncss: this.includeUncss,
           includeBabel: this.options['babel']
         }
       );
