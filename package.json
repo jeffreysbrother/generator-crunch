@@ -1,9 +1,9 @@
 {
-  "name": "generator-ninthlink",
-  "version": "1.0.1",
-  "description": "an updated version of generator-webapp which includes gulp-uncss",
+  "name": "generator-crunch",
+  "version": "1.0.0",
+  "description": "an updated version of generator-webapp for slimming shit down",
   "license": "BSD-2-Clause",
-  "repository": "jeffreysbrother/generator-ninthlink",
+  "repository": "jeffreysbrother/generator-crunch",
   "author": "The Yeoman Team and James Cool",
   "main": "app/index.js",
   "engines": {
