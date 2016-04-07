@@ -28,12 +28,6 @@ module.exports = generators.Base.extend({
       defaults: 'mocha'
     });
 
-    this.option('babel', {
-      desc: 'Use Babel',
-      type: Boolean,
-      defaults: true
-    });
-
     if (this.options['test-framework'] === 'mocha') {
       testLocal = require.resolve('generator-mocha/generators/app/index.js');
     } else if (this.options['test-framework'] === 'jasmine') {
@@ -116,7 +110,6 @@ module.exports = generators.Base.extend({
           version: this.pkg.version,
           includeSass: this.includeSass,
           includeBootstrap: this.includeBootstrap,
-          includeBabel: this.options['babel'],
           testFramework: this.options['test-framework']
         }
       );
@@ -127,16 +120,8 @@ module.exports = generators.Base.extend({
         this.templatePath('_package.json'),
         this.destinationPath('package.json'),
         {
-          includeSass: this.includeSass,
-          includeBabel: this.options['babel']
+          includeSass: this.includeSass
         }
-      );
-    },
-
-    babel: function () {
-      this.fs.copy(
-        this.templatePath('babelrc'),
-        this.destinationPath('.babelrc')
       );
     },
 
@@ -202,22 +187,6 @@ module.exports = generators.Base.extend({
         this.templatePath('editorconfig'),
         this.destinationPath('.editorconfig')
       );
-    },
-
-    h5bp: function () {
-      this.fs.copy(
-        this.templatePath('favicon.ico'),
-        this.destinationPath('app/favicon.ico')
-      );
-
-      this.fs.copy(
-        this.templatePath('apple-touch-icon.png'),
-        this.destinationPath('app/apple-touch-icon.png')
-      );
-
-      this.fs.copy(
-        this.templatePath('robots.txt'),
-        this.destinationPath('app/robots.txt'));
     },
 
     styles: function () {
@@ -288,8 +257,9 @@ module.exports = generators.Base.extend({
     },
 
     misc: function () {
-      mkdirp('app/images');
+      mkdirp('app/img');
       mkdirp('app/fonts');
+      mkdirp('app/css');
     }
   },
 
